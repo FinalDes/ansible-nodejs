@@ -1,0 +1,16 @@
+---
+# tasks file for nodejs
+- name: install dependencies
+  apt: name={{item}} state=present
+  with_items:
+    - apt-transport-https
+- name: add nodejs key
+  apt_key: url=https://deb.nodesource.com/gpgkey/nodesource.gpg.key state=present
+- name: add nodejs repo
+  apt_repository: repo='deb https://deb.nodesource.com/node_4.x xenial main' state=present filename='node' update_cache=yes
+- name: install packages
+  apt: name={{item}} state=present
+  with_items:
+    - nodejs
+- name: update npm packages
+  npm: state=latest global=yes
