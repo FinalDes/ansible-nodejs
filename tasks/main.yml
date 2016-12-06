@@ -2,10 +2,8 @@
 # tasks file for nodejs
 - name: install dependencies
   apt:
-    name: {{item}}
+    name: apt-transport-https
     state: present
-  with_items:
-    - apt-transport-https
 - name: add nodejs key
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
@@ -19,10 +17,8 @@
     update_cache: yes
 - name: install packages
   apt:
-    name: {{item}}
+    name: nodejs
     state: present
-  with_items:
-    - nodejs
 - name: update npm packages
   npm:
     state: latest
