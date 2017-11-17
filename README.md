@@ -5,6 +5,10 @@ NodeJS
 
 Nodejs Basic Setup
 
+Role Variables
+--------------
+version: nodejs version (default is 8)
+
 Example Playbook
 ----------------
 
@@ -12,7 +16,8 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: nodejs}
+         - role: nodejs
+           version: 8
 
 License
 -------
