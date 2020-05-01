@@ -8,10 +8,10 @@
   apt_key:
     url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
     state: present
-    id: 68576280
+    id: '68576280'
 - name: add nodejs repo
   apt_repository:
-    repo: 'deb https://deb.nodesource.com/node_{{version}}.x {{ansible_distribution_release}} main'
+    repo: 'deb https://deb.nodesource.com/node_{{ version }}.x {{ ansible_distribution_release }} main'
     state: present
     filename: 'node'
     update_cache: yes
