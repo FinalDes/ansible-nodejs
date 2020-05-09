@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    ansible_user: ansible
+  roles:
+    - name: "ansible-nodejs"
+      become: true
+  # tasks:
+  #   - name: "Include ansible-nodejs"
+  #     include_role:
+  #       name: "ansible-nodejs"
