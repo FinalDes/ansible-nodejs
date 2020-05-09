@@ -14,11 +14,18 @@ jobs:
     runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        # version:
-          # - "stable"
-          # - "edge"
-          # - "test"
-          # - "nightly"
+        version:
+          - "default"
+          - "13"
+          - "12"
+          - "11"
+          - "10"
+          - "9"
+          - "8"
+          - "7"
+          - "6"
+          - "5"
+          - "4"
         os:
           - ubuntu-18.04
         python-version:
@@ -47,5 +54,5 @@ jobs:
         run: printf '[defaults]\nroles_path=../' >ansible.cfg
       - name: ansible syntax-check
         run: ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-      - name: Run docker ${{matrix.version}} test
-        run: molecule test
+      - name: Run nodejs ${{matrix.version}} playbook test
+        run: molecule test --scenario-name ${{matrix.version}}
