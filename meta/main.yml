@@ -134,6 +134,7 @@ galaxy_info:
   #  - 9.3
   - name: Ubuntu
     versions:
+    - 20.04
     - 18.04
     - 16.04
   #  - all
